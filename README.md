@@ -3,7 +3,7 @@
 
 ### 我学习LUA语言主要是为用于与**c语言**和**cocos2d**一起制作游戏。**现在开始学习吧**
 
-## 第一章 开发环境配置
+## NO.1 开发环境配置
 
 在Mac oxs上安装LUA<br />
 `curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz`<br />
