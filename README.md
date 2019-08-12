@@ -27,15 +27,15 @@ Lua 表示符用于定义一个变量，函数获取其他用户定义的项。�
 
 ### 关键词
 以下列出了 Lua 的保留关键字。保留关键字不能作为常量或变量或其他用户自定义标示符：
-+ and break do	else 
-+ elseif	end	false	for 
-+ function	if	in	local 
-+ nil	not	or	repeat 
-+ return	then	true	until 
-+ while<br />	
+<pre>and break do	else 
+elseif	end	false	for 
+function	if	in	local 
+nil	not	or	repeat 
+return	then	true	until 
+while</code></pre>
 一般约定，以下划线开头连接一串大写字母的名字（比如 _VERSION）被保留用于 Lua 内部全局变量。
 
 ### 空白格
-只包含空格(可能带有注释)的行称为空行，Lua解释器完全忽略它。空白符是Lua用来描述空格，制表符，换行符和注释的术语。 空格符将语句的一部分与另一部分分开，并使解释器能够识别语句中的一个元素(如int结束)和下一个元素的开始位置。 因此，在以下声明中<br />
-```local age```
+只包含空格(可能带有注释)的行称为空行，Lua解释器完全忽略它。空白符是Lua用来描述空格，制表符，换行符和注释的术语。 空格符将语句的一部分与另一部分分开，并使解释器能够识别语句中的一个元素(如int结束)和下一个元素的开始位置。 因此，在以下声明中
+<pre>local age</code></pre>
 在local和age之间必须至少有一个空格字符(通常是空格)，以便解释器能够区分它们。
