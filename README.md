@@ -32,5 +32,5 @@ Lua 表示符用于定义一个变量，函数获取其他用户定义的项。�
 + function	if	in	local 
 + nil	not	or	repeat 
 + return	then	true	until 
-+ while			
++ while<br />			
 一般约定，以下划线开头连接一串大写字母的名字（比如 _VERSION）被保留用于 Lua 内部全局变量。
