@@ -14,4 +14,4 @@ make install</code></pre>
 没有安装Xcode和命令行工具，将无法使用make命令。 从Mac app store安装Xcode。 然后转到Xcode的参考，然后切换到Downloads并安装名为“Command Line Tools”的组件。 完成该过程后，就可以使用make命令。
 
 ### 第一个程序
-<pre>print("Hello World!")   --[[这是注释--]]</code></pre>
+<pre>print("Hello World!")   --[[这是注释 --]]</code></pre>
