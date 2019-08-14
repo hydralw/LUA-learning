@@ -88,3 +88,13 @@ f = 70.0/3.0
 print("value of f:", f)
 -->value of f:23.333333333333
 </code></pre>
+
+### 数据类型
++ nil 用于区分值与某些数据或没有(nil)数据。
++ boolean 包括true和false作为值，通常用于条件检查。
++ number 表示实数(双精度浮点)数字。
++ string 表示字符数组。
++ function 表示用C语言或Lua编写的方法。
++ userdata 表示任意C语言数据。
++ thread 表示独立的执行线程，它用于实现协同程序。
++ table 表示普通数组，符号表，集合，记录，图形，树等，并实现关联数组。 它可以保存任何值(除了nil)。
