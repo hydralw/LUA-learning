@@ -92,10 +92,19 @@ print("value of f:", f)
 ### 数据类型
 + nil 用于区分值与某些数据或没有(nil)数据。
 + boolean 包括true和false作为值，通常用于条件检查。
+>默认情况下，在分配值或初始化之前，所有变量都将指向nil。 在Lua中，在条件检查的情况下，零和空字符串认为是：true。 因此，使用布尔运算时必须小心。
 + number 表示实数(双精度浮点)数字。
 + string 表示字符数组。
 + function 表示用C语言或Lua编写的方法。
 + userdata 表示任意C语言数据。
 + thread 表示独立的执行线程，它用于实现协同程序。
 + table 表示普通数组，符号表，集合，记录，图形，树等，并实现关联数组。 它可以保存任何值(除了nil)。
->默认情况下，在分配值或初始化之前，所有变量都将指向nil。 在Lua中，在条件检查的情况下，零和空字符串认为是：true。 因此，使用布尔运算时必须小心。
+<pre>
+print(type("Hello world"))      -->string
+print(type(10.4*3))             -->numble
+print(type(print))              -->function
+print(type(type))               -->function
+print(type(true))               -->boolean
+print(type(nil))                -->nil
+print(type(type(X)))            -->string
+</code></pre>
