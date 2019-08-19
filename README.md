@@ -90,15 +90,74 @@ print("value of f:", f)
 </code></pre>
 
 ### 数据类型
-+ nil 用于区分值与某些数据或没有(nil)数据。
++ nil 用于区分值与某些数据或没有(nil)数据。对于全局变量和 table，nil 还有一个"删除"作用，给全局变量或者 table 表里的变量赋一个 nil 值，等同于把它们删掉。
 + boolean 包括true和false作为值，通常用于条件检查。
 >默认情况下，在分配值或初始化之前，所有变量都将指向nil。 在Lua中，在条件检查的情况下，零和空字符串认为是：true。 因此，使用布尔运算时必须小心。
-+ number 表示实数(双精度浮点)数字。
-+ string 表示字符数组。
++ number 表示实数(双精度浮点)数字。Lua 默认只有一种 number 类型 -- double（双精度）类型（默认类型可以修改 luaconf.h 里的定义）
++ string 表示字符数组。字符串由一对双引号或单引号来表示，2个方括号 "[[]]" 来表示"一块"字符串。字符串连接使用的是”..“
+<pre>
+print("a" .. 'b')
+-->ab
+print(157 .. 428)
+-->157428
+</code></pre>
 + function 表示用C语言或Lua编写的方法。
-+ userdata 表示任意C语言数据。
-+ thread 表示独立的执行线程，它用于实现协同程序。
-+ table 表示普通数组，符号表，集合，记录，图形，树等，并实现关联数组。 它可以保存任何值(除了nil)。
+<pre>
+function factorial1(n)
+    if n == 0 then
+        return 1
+    else
+        return n * factorial1(n - 1)
+    end
+end
+print(factorial1(5))
+factorial2 = factorial1
+print(factorial2(5))
+-->120
+   120
+</code></pre>
+function 可以以匿名函数（anonymous function）的方式通过参数传递
+<pre>
+function anonymous(tab, fun)
+    for k, v in pairs(tab) do
+        print(fun(k, v))
+    end
+end
+tab = { key1 = "val1", key2 = "val2" }
+anonymous(tab, function(key, val)
+    return key .. " = " .. val
+end)
+-->key1 = val1
+   key2 = val2
+</code></pre>
++ userdata 表示一种用户自定义数据，用于表示一种由应用程序或 C/C++ 语言库所创建的类型，可以将任意 C/C++ 的任意数据类型的数据（通常是 struct 和 指针）存储到 Lua 变量中调用。
++ thread 在 Lua 里，最主要的线程是协同程序（coroutine）。它跟线程（thread）差不多，拥有自己独立的栈、局部变量和指令指针，可以跟其他协同程序共享全局变量和其他大部分东西。线程跟协程的区别：线程可以同时多个运行，而协程任意时刻只能运行一个，并且处于运行状态的协程只有被挂起（suspend）时才会暂停。
++ table 表示普通数组，符号表，集合，记录，图形，树等，并实现关联数组。 它可以保存任何值(除了nil)。在Lua里，table的创建是通过"构造表达式"来完成，最简单构造表达式是{}，用来创建一个空表。也可以在表里添加一些数据，直接初始化表
+Lua 中的表（table）其实是一个"关联数组"（associative arrays），数组的索引可以是数字或者是字符串。
+<pre>
+a = {}
+a["key"] = "value"
+key = 10
+a[key] = 22
+a[key] = a[key] + 11
+for k, v in pairs(a) do
+    print(k .. " : " .. v)
+end
+-->key : value
+   10 : 33
+</code></pre>
+不同于其他语言的数组把 0 作为数组的初始索引，在 Lua 里表的默认初始索引一般以 1 开始。
+<pre>
+local tbl = {"apple", "pear", "orange", "grape"}
+for key, val in pairs(tbl) do
+    print("Key", key)
+end
+-->Key 1
+   Key 2
+   Key 3
+   Key 4
+</code></pre>
+table 不会固定长度大小，有新数据添加时 table 长度会自动增长，没初始的 table 都是 nil。
 <pre>
 print(type("Hello world"))      -->string
 print(type(10.4*3))             -->numble
@@ -108,3 +167,5 @@ print(type(true))               -->boolean
 print(type(nil))                -->nil
 print(type(type(X)))            -->string
 </code></pre>
+
+### 
