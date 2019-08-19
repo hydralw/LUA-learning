@@ -118,7 +118,7 @@ print(factorial2(5))
 </code></pre>
 function 可以以匿名函数（anonymous function）的方式通过参数传递
 <pre>
-function anonymous(tab, fun)
+function anonymous(tab, fun) ❌
     for k, v in pairs(tab) do
         print(fun(k, v))
     end
