@@ -11,7 +11,7 @@ end          -- 克隆，以创建实例
 
 -- end
 
-People = {}  --创建People类，两种方法封装
+People = {}  -- 创建People类，两种方法封装
 People.sayHi = function (self)
   print(self.name.." say hi")
 end
