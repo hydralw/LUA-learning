@@ -25,3 +25,14 @@ print(type(type))
 print(type(true))              
 print(type(nil))                
 print(type(type(X)))            
+
+arr = {}
+
+for var=1, 100 do
+  table.insert(arr,1,var)
+end
+
+--for key, var in pairs(arr) do
+  --print(key, var)
+--end
+print(table.maxn(arr))
