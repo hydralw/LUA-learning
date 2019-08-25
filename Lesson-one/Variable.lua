@@ -18,13 +18,13 @@ f = 70.0/3.0
 print("value of f:", f)
 
 -- 数据类型
-print(type("Hello world"))      
-print(type(10.4*3))           
-print(type(print))              
+print(type("Hello world"))
+print(type(10.4*3))
+print(type(print))
 print(type(type))             
-print(type(true))              
-print(type(nil))                
-print(type(type(X)))            
+print(type(true))
+print(type(nil))
+print(type(type(X)))
 
 arr = {}
 
