@@ -40,11 +40,16 @@ Man.new = function (name)
 end
 
 -- 创建新的方法
-function Man.sayHello()
+Man.sayHello = function(name)
   print("Man say hello")
 end
 
+-- 重写方法
+function Man.sayHi(self)
+  print("People say hi to "..self.name)
+end
+
 -- 创建实例
-local p = Man.new("LiSi")
-p:sayHello()
-p:sayHi() -- 继承父类的方法
+local m = Man.new("LiSi")
+m:sayHello()
+m:sayHi() -- 继承父类的方法
