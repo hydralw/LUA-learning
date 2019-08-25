@@ -4,11 +4,9 @@ function People(name) -- 一个函数包
   local function init()  -- 初始化操作，私有的方法 
     self.name = name
   end
-
   self.sayHi = function()
     print(self.name.." say Hi")
   end
-
   init() -- 执行初始化
   return self
 end
@@ -27,7 +25,6 @@ function Man(name)
   end
   return self
 end
-
 local m = Man("LiSi")
 m:sayHello()
 m:sayHi()
